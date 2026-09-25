@@ -2,7 +2,8 @@ import { Link } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react"
 import DataTable from 'datatables.net-dt';
-import 'datatables.net-dt/css/DataTables.DataTables.min.css'
+// import 'datatables.net-dt/css/dataTables.dataTables.css'
+import 'datatables.net-dt/css/dataTables.dataTables.css'
 
 import AdminSidebar from "../../../component/Admin/AdminSidebar"
 import { getProduct, deleteProduct } from "../../../Redux/ActionCreaters/ProductAction"
