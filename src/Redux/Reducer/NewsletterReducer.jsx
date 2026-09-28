@@ -1,12 +1,20 @@
-import { CREATE_NEWSLETTER_RED, GET_NEWSLETTER, UPDATE_NEWSLETTER_RED, DELETE_NEWSLETTER_RED, GET_NEWSLETTER_RED } from "../Constent"
-const NewsletterReducer = (state=[], action) => {
+import {
+    CREATE_NEWSLETTER_RED,
+    UPDATE_NEWSLETTER_RED,
+    DELETE_NEWSLETTER_RED,
+    GET_NEWSLETTER_RED
+} from "../Constent"
+
+const NewsletterReducer = (state = [], action) => {
     let index
+
     switch (action.type) {
+
         case CREATE_NEWSLETTER_RED:
             return [...state, action.payload]
 
         case GET_NEWSLETTER_RED:
-            return action.payload
+            return action.payload.data
 
         case UPDATE_NEWSLETTER_RED:
             index = state.findIndex(x => x.id === action.payload.id)
@@ -20,4 +28,5 @@ const NewsletterReducer = (state=[], action) => {
             return state
     }
 }
+
 export default NewsletterReducer

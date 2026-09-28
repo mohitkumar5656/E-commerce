@@ -1,12 +1,21 @@
-import { CREATE_SETTING_RED, GET_SETTING, UPDATE_SETTING_RED, DELETE_SETTING_RED, GET_SETTING_RED } from "../Constent"
-const SettingReducer = (state=[], action) => {
+import {
+    CREATE_SETTING_RED,
+    GET_SETTING,
+    UPDATE_SETTING_RED,
+    DELETE_SETTING_RED,
+    GET_SETTING_RED
+} from "../Constent"
+
+const SettingReducer = (state = [], action) => {
     let index
+
     switch (action.type) {
+
         case CREATE_SETTING_RED:
             return [...state, action.payload]
 
         case GET_SETTING_RED:
-            return action.payload
+            return action.payload.data
 
         case UPDATE_SETTING_RED:
             index = state.findIndex(x => x.id === action.payload.id)
@@ -20,4 +29,5 @@ const SettingReducer = (state=[], action) => {
             return state
     }
 }
+
 export default SettingReducer

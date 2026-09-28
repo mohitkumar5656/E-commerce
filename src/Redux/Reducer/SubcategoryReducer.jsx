@@ -1,12 +1,21 @@
-import { CREATE_SUBCATEGORY_RED, GET_SUBCATEGORY, UPDATE_SUBCATEGORY_RED, DELETE_SUBCATEGORY_RED, GET_SUBCATEGORY_RED } from "../Constent"
-const SubcategoryReducer = (state=[], action) => {
+import {
+    CREATE_SUBCATEGORY_RED,
+    GET_SUBCATEGORY,
+    UPDATE_SUBCATEGORY_RED,
+    DELETE_SUBCATEGORY_RED,
+    GET_SUBCATEGORY_RED
+} from "../Constent"
+
+const SubcategoryReducer = (state = [], action) => {
     let index
+
     switch (action.type) {
+
         case CREATE_SUBCATEGORY_RED:
             return [...state, action.payload]
 
         case GET_SUBCATEGORY_RED:
-            return action.payload
+            return action.payload.data
 
         case UPDATE_SUBCATEGORY_RED:
             index = state.findIndex(x => x.id === action.payload.id)
@@ -20,4 +29,5 @@ const SubcategoryReducer = (state=[], action) => {
             return state
     }
 }
+
 export default SubcategoryReducer

@@ -1,12 +1,21 @@
-import { CREATE_TESTIMONIAL_RED, GET_TESTIMONIAL, UPDATE_TESTIMONIAL_RED, DELETE_TESTIMONIAL_RED, GET_TESTIMONIAL_RED } from "../Constent"
-const TestimonialReducer = (state=[], action) => {
+import {
+    CREATE_TESTIMONIAL_RED,
+    GET_TESTIMONIAL,
+    UPDATE_TESTIMONIAL_RED,
+    DELETE_TESTIMONIAL_RED,
+    GET_TESTIMONIAL_RED
+} from "../Constent"
+
+const TestimonialReducer = (state = [], action) => {
     let index
+
     switch (action.type) {
+
         case CREATE_TESTIMONIAL_RED:
             return [...state, action.payload]
 
         case GET_TESTIMONIAL_RED:
-            return action.payload
+            return action.payload.data
 
         case UPDATE_TESTIMONIAL_RED:
             index = state.findIndex(x => x.id === action.payload.id)
@@ -20,4 +29,5 @@ const TestimonialReducer = (state=[], action) => {
             return state
     }
 }
+
 export default TestimonialReducer

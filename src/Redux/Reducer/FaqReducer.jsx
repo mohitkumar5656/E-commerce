@@ -1,12 +1,20 @@
-import { CREATE_FAQ_RED, GET_FAQ, UPDATE_FAQ_RED, DELETE_FAQ_RED, GET_FAQ_RED } from "../Constent"
-const FaqReducer = (state=[], action) => {
+import {
+    CREATE_FAQ_RED,
+    UPDATE_FAQ_RED,
+    DELETE_FAQ_RED,
+    GET_FAQ_RED
+} from "../Constent"
+
+const FaqReducer = (state = [], action) => {
     let index
+
     switch (action.type) {
+
         case CREATE_FAQ_RED:
             return [...state, action.payload]
 
         case GET_FAQ_RED:
-            return action.payload
+            return action.payload.data
 
         case UPDATE_FAQ_RED:
             index = state.findIndex(x => x.id === action.payload.id)
@@ -20,4 +28,5 @@ const FaqReducer = (state=[], action) => {
             return state
     }
 }
+
 export default FaqReducer

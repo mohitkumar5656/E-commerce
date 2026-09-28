@@ -1,12 +1,20 @@
-import { CREATE_PRODUCT_RED, GET_PRODUCT, UPDATE_PRODUCT_RED, DELETE_PRODUCT_RED, GET_PRODUCT_RED } from "../Constent"
-const ProductReducer = (state=[], action) => {
+import {
+    CREATE_PRODUCT_RED,
+    UPDATE_PRODUCT_RED,
+    DELETE_PRODUCT_RED,
+    GET_PRODUCT_RED
+} from "../Constent"
+
+const ProductReducer = (state = [], action) => {
     let index
+
     switch (action.type) {
+
         case CREATE_PRODUCT_RED:
             return [...state, action.payload]
 
         case GET_PRODUCT_RED:
-            return action.payload
+            return action.payload.data
 
         case UPDATE_PRODUCT_RED:
             index = state.findIndex(x => x.id === action.payload.id)
@@ -20,4 +28,5 @@ const ProductReducer = (state=[], action) => {
             return state
     }
 }
+
 export default ProductReducer
