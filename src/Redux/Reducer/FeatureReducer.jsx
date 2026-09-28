@@ -1,12 +1,20 @@
-import { CREATE_FEATURE_RED, GET_FEATURE, UPDATE_FEATURE_RED, DELETE_FEATURE_RED, GET_FEATURE_RED } from "../Constent"
-const FeatureReducer = (state=[], action) => {
+import {
+    CREATE_FEATURE_RED,
+    UPDATE_FEATURE_RED,
+    DELETE_FEATURE_RED,
+    GET_FEATURE_RED
+} from "../Constent"
+
+const FeatureReducer = (state = [], action) => {
     let index
+
     switch (action.type) {
+
         case CREATE_FEATURE_RED:
             return [...state, action.payload]
 
         case GET_FEATURE_RED:
-            return action.payload
+            return action.payload.data
 
         case UPDATE_FEATURE_RED:
             index = state.findIndex(x => x.id === action.payload.id)
@@ -20,4 +28,5 @@ const FeatureReducer = (state=[], action) => {
             return state
     }
 }
+
 export default FeatureReducer
