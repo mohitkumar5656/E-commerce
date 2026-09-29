@@ -69,7 +69,8 @@ const ShopPage = () => {
         setsortFilter(sortFilter)
 
         if (sortFilter === "1")
-            data = data.sort((x, y) => y.id.localeCompare(x.id))
+            // data = data.sort((x, y) => y.id.localeCompare(x.id))
+        data = data.sort((x, y) => String(y._id).localeCompare(String(x._id)))
         else if (sortFilter === "2")
             data = data.sort((x, y) => x.finalPrice - y.finalPrice)
         else
